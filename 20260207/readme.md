@@ -1,2 +1,2 @@
-![method](https://github.com/kwhspike/preexperiment/edit/main/20260207/figure1.png)
+![method](https://github.com/kwhspike/preexperiment/blob/main/20260207/figure1.png)
 
