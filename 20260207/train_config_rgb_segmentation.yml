@@ -23,6 +23,7 @@ trainer:
   eval_score_higher_is_better: True
   checkpoint_dir: ./checkpoints/rgb_segmentation_model
   max_num_epochs: 200
+#max_num_iterations需要修改，因为输出的结果中，模型还没有收敛就提前停止了
   max_num_iterations: 40000
 
 loaders:
