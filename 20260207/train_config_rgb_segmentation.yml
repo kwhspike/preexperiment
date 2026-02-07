@@ -1,0 +1,74 @@
+model:
+  name: UNet2D
+  in_channels: 3
+  out_channels: 1
+  layer_order: gcr
+  f_maps: 32
+  num_groups: 8
+  final_sigmoid: true
+
+loss:
+  name: BCEDiceLoss
+  alpha: 1
+  beta: 1
+
+eval_metric:
+  name: DiceCoefficient
+
+optimizer:
+  learning_rate: 0.0002
+  weight_decay: 0.00001
+
+trainer:
+  eval_score_higher_is_better: True
+  checkpoint_dir: ./checkpoints/rgb_segmentation_model
+  max_num_epochs: 200
+  max_num_iterations: 40000
+
+loaders:
+  dataset: StandardHDF5Dataset
+  num_workers: 8
+  raw_internal_path: raw
+  label_internal_path: label
+  global_normalization: true
+
+  train:
+    file_paths:
+      - ./trainset_3dunet
+
+    slice_builder:
+      name: SliceBuilder
+      patch_shape: [1,128, 128]
+      stride_shape: [1,64, 64]
+
+    transformer:
+      raw:
+        - name: Standardize
+        - name: RandomFlip
+        - name: RandomRotate90
+        - name: ToTensor
+          expand_dims: false
+
+      label:
+        - name: RandomFlip
+        - name: RandomRotate90
+        - name: ToTensor
+          expand_dims: false
+
+  val:
+    file_paths:
+      - ./valset_3dunet
+
+    slice_builder:
+      name: SliceBuilder
+      patch_shape: [1,128, 128]
+      stride_shape: [1,128, 128]
+
+    transformer:
+      raw:
+        - name: Standardize
+        - name: ToTensor
+          expand_dims: false
+      label:
+        - name: ToTensor
+          expand_dims: false
