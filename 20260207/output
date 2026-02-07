@@ -1,0 +1,10 @@
+2026-02-06 23:14:19,678 [MainThread] INFO UNetTrainer - Training iteration [39999/40000]. Epoch [1/199]
+2026-02-06 23:14:19,693 [MainThread] INFO UNetTrainer - Training iteration [40000/40000]. Epoch [1/199]
+2026-02-06 23:14:19,706 [MainThread] INFO UNetTrainer - Validating...
+100%|█████████████████████████████████████████████████████████| 2448/2448 [00:48<00:00, 50.50it/s] 
+2026-02-06 23:15:09,942 [MainThread] INFO UNetTrainer - Validation finished. Loss: 1.033074061867166. Evaluation score: 0.018485318037515408
+2026-02-06 23:15:09,947 [MainThread] INFO UNetTrainer - Saving checkpoint to './checkpoints/rgb_segmentation_model\last_checkpoint.pytorch'
+2026-02-06 23:15:10,019 [MainThread] INFO UNetTrainer - Training stats. Loss: 1.0336929208119905. Evaluation score: 0.005710509576895886
+2026-02-06 23:15:10,038 [MainThread] INFO UNetTrainer - Training iteration [40001/40000]. Epoch [1/199]
+2026-02-06 23:15:10,064 [MainThread] INFO UNetTrainer - Maximum number of iterations 40000 exceeded.
+2026-02-06 23:15:14,078 [MainThread] INFO UNetTrainer - Stopping criterion is satisfied. Finishing training
